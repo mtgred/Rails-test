@@ -1,0 +1,101 @@
+//= require_self
+@import "config.css.sass"
+@import "mixins.css.sass"
+@import "p-core.css.sass"
+@import "custom.css.sass"
+
+// These styles are for presentational purposes. Delete if needed.
+.f-h4 
+  text-transform: uppercase
+  font-size: 18px
+  border-bottom: 2px solid $gray-light
+  margin-top: 24px
+
+.demogrid 
+  background: lighten($blue, 30%)
+  margin-top: 10px
+  text-indent: 5px
+
+pre 
+  background: #333
+  color: $green
+  border: 1px solid #111
+  @include radius()
+  @include bs(inset 0 1px 3em #111)
+  span 
+    color: $yellow
+
+//#frameworkCoreFeatures code:hover 
+  //color: $orange
+  //@include transition()
+
+.result 
+  border: 1px solid $gray-light
+  background: #eee
+  padding: 10px
+  margin: 0 20px 30px
+  @include radius(0 0 5px 5px)
+  @include bs(inset 0 0 5px $gray-light)
+  position: relative
+  h5 
+    text-transform: uppercase
+    color: $gray-light
+    @include ts()
+    @include font(bold, 14px, 20px, $mono)
+
+.p-fontmixin 
+  @include font(bold, 28px, 32px, "'Georgia, 'Times New Roman', serif")
+  text-align: center
+
+.p-radius 
+  @include radius(0 10px 5px 40px)
+  border: 1px solid darken($orange, 20%)
+  background: $orange
+  padding: 10px
+  text-align: center
+  color: $white
+
+.p-rotate 
+  @include rotate()
+  position: absolute
+  top: -135px
+  left: 200px
+  background: $red
+  padding: 10px
+  color: $white
+  @include bs()
+
+.p-bs 
+  @include bs(0 2px 5px #222, inset 0 1px 3px #fff)
+  width: 200px
+  margin: -20px auto 10px
+  padding: 10px
+  @include radius()
+  @include gradient-v()
+  color: $gray
+  @include ts(0 -1px 1px $black)
+
+.p-gradientV 
+  @include gradient-v()
+  width: 400px
+  margin: -20px auto 10px
+  padding: 10px
+  @include radius()
+  color: $white
+
+.p-gradientH 
+  @include gradient-h(#69B9DA, #007BAD, url(../images/cross.png))
+  width: 400px
+  margin: 10px auto 10px
+  padding: 10px
+  @include radius()
+  color: $white
+
+.p-gradientHline 
+  @include gradient-hline()
+  width: 400px
+  margin: 10px auto 10px
+  padding: 10px
+  @include radius()
+  color: $white
+  @include ts(0 -1px 2px #333)

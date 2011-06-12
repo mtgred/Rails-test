@@ -2,7 +2,7 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+  <fieldset>
   <p><%= f.label :first_name %><br />
   <%= f.text_field :first_name %></p>
 
@@ -19,6 +19,7 @@
   <%= f.password_field :password_confirmation %></p>
 
   <p><%= f.submit "Sign up" %></p>
+</fieldset>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

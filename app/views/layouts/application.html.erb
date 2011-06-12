@@ -1,23 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-  <title>Saas</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>@title</title>
+  <%= stylesheet_link_tag "application"%>
+  <%= javascript_include_tag "application"%>
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold" rel="stylesheet" type="text/css"> 
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold" rel="stylesheet" type="text/css"> 
+  <%= csrf_meta_tags%>
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]--> 
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <div>
-    <% if user_signed_in? %>
-      <%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_registration_path%> |
-      <%= link_to 'Sign out', destroy_user_session_path %>
-    <% else %>
-      <%= link_to 'Sign up', new_user_registration_path %> |
-      <%= link_to 'Login', new_user_session_path %>
-    <% end %>
+  <header>
+    <div class="row">
+      <div class="grid-6">
+        <h1 class="logo">perkins</h1> 
+        <p class="slogan">Run <span class="serif">&amp;</span> Manage Your Business Easily</p> 
+      </div> 
+      <ul class="grid-10 tar u-menu">
+        <% if user_signed_in? %>
+          <li><%= link_to 'Sign out', destroy_user_session_path %></li>
+          <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_registration_path %></li>
+        <% else %>
+          <li><%= link_to 'Login', new_user_session_path%></li>
+          <li><%= link_to 'Sign up', new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </header>
+
+  <div id="content">
+    <div class="row">
+      <% if notice %>
+      <p class="success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+      <p class="error"><%= alert %></p>
+      <% end %>
+      <%= yield%>
+    </div>
   </div>
-<%= yield %>
+
+  <footer>
+    <div class="row">
+    </div>
+  </footer>
 </body>
 </html>
