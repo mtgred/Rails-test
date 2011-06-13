@@ -1,7 +1,7 @@
 /**********/
 /* Mixins */
 /**********/
-@mixin font($weight: normal, $size: 16px, $lineheight: 20px, $fontfamily: $sans)
+@mixin font($weight: normal, $size: 15px, $lineheight: 18px, $fontfamily: $narrow)
   font-family: $fontfamily
   font-size: $size
   font-weight: $weight
@@ -91,13 +91,14 @@
   background-clip: padding-box
 
 // Buttons
-@mixin button($color: #ccc, $text_color: #444, $text_shadow: 0 1px 0 rgba(255,255,255,0.40), $padding: 9px 15px 7px, $rounded: 5px, $font_weight: 300)
+@mixin button($color: #ccc, $text_color: #444, $text_shadow: 0 1px 0 rgba(255,255,255,0.40), $padding: 5px 15px 6px, $rounded: 5px, $font_weight: 300)
   display: inline-block
   padding: $padding
   color: $text_color
   line-height: 20px
   border: 1px solid rgba(45, 45, 45, 0.50)
-  margin: 3px 0
+  cursor: pointer
+  margin-top: 10px
   @include gradient-v($color,darken($color,10%))
   @include ts($text_shadow)
   @include radius($rounded)
@@ -142,7 +143,7 @@
   color: $font-color
   border: $border
   a 
-    color: $white
+    color: white
     background: $font-color
     padding: 2px 5px 0
     @include radius()

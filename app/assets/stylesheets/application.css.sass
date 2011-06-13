@@ -5,11 +5,6 @@
 @import "custom.css.sass"
 
 // These styles are for presentational purposes. Delete if needed.
-.f-h4 
-  text-transform: uppercase
-  font-size: 18px
-  border-bottom: 2px solid $gray-light
-  margin-top: 24px
 
 .demogrid 
   background: lighten($blue, 30%)
@@ -31,7 +26,7 @@ pre
 
 .result 
   border: 1px solid $gray-light
-  background: #eee
+  background: $gray-lighter
   padding: 10px
   margin: 0 20px 30px
   @include radius(0 0 5px 5px)
@@ -53,7 +48,7 @@ pre
   background: $orange
   padding: 10px
   text-align: center
-  color: $white
+  color: white
 
 .p-rotate 
   @include rotate()
@@ -62,7 +57,7 @@ pre
   left: 200px
   background: $red
   padding: 10px
-  color: $white
+  color: white
   @include bs()
 
 .p-bs 
@@ -81,7 +76,7 @@ pre
   margin: -20px auto 10px
   padding: 10px
   @include radius()
-  color: $white
+  color: white
 
 .p-gradientH 
   @include gradient-h(#69B9DA, #007BAD, url(../images/cross.png))
@@ -89,7 +84,7 @@ pre
   margin: 10px auto 10px
   padding: 10px
   @include radius()
-  color: $white
+  color: white
 
 .p-gradientHline 
   @include gradient-hline()
@@ -97,5 +92,5 @@ pre
   margin: 10px auto 10px
   padding: 10px
   @include radius()
-  color: $white
+  color: white
   @include ts(0 -1px 2px #333)

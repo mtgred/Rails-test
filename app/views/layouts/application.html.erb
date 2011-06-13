@@ -12,13 +12,17 @@
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]--> 
+  <!--[if lte IE 7]>
+    <style type="text/css">#wrapper{height:100%;}</style>
+  <![endif]-->
 </head>
 <body>
+<div id="wrapper">
   <header>
     <div class="row">
       <div class="grid-6">
-        <h1 class="logo">perkins</h1> 
-        <p class="slogan">Run <span class="serif">&amp;</span> Manage Your Business Easily</p> 
+        <h5 class="logo"><%= link_to 'OpenERP', root_path %></h5>
+        <p class="slogan">Open Source Business Applications</p>
       </div> 
       <ul class="grid-10 tar u-menu">
         <% if user_signed_in? %>
@@ -40,7 +44,7 @@
       <% if alert %>
       <p class="error"><%= alert %></p>
       <% end %>
-      <%= yield%>
+      <%= yield %>
     </div>
   </div>
 
@@ -48,5 +52,6 @@
     <div class="row">
     </div>
   </footer>
+</div>
 </body>
 </html>

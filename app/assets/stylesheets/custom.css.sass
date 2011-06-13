@@ -1,5 +1,38 @@
+#wrapper
+  min-height: 100%
+  position: relative
+
+#content
+  padding-bottom: 184px
+
+.logo
+  margin: 0
+  font-weight: bold
+  a
+    display: inline-block
+    margin: 0 5px 5px 5px
+    padding: 22px 14px 8px
+    background: $red
+    color: white
+    @include bs(0 0 9px $gray-dark)
+    @include radius(0 0 5px 5px)
+    &:hover
+      background: lighten($red, 3%)
+
 footer
-  margin: 10px 0px
-  div
-    border-top: 1px solid $gray-light
-    min-height: 20px
+  position: absolute
+  bottom: 0
+  width: 100%
+  height: 150px
+  padding-top: 10px
+  background: $gray-lighter
+  @include bs(inset 3px 2px 8px $gray-light)
+
+.title
+  text-transform: uppercase
+  border-bottom: 2px solid $gray-light
+  margin-top: 20px
+
+.center-form
+  margin: 5em auto
+  width: 284px
