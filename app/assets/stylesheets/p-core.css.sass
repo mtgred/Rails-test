@@ -5,6 +5,9 @@
 html, body
   margin: 0
   padding: 0 
+  height: 100%
+  min-height: 100%
+  position: relative
   
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, button, table, caption, tbody, tfoot, thead, tr, th, td
   margin: 0
@@ -13,7 +16,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, cod
   font-weight: normal
   font-style: normal
   font-size: 100% 
-  line-height: 1 
+  line-height: 1
   font-family: inherit
   text-align: left 
   
@@ -253,30 +256,34 @@ table
 /********/
 form 
   fieldset 
+    display: inline-block
     border: 1px solid $system
-    margin: 0 0 18px 0
-    padding: 10px
+    margin: 10px 0
+    padding: 18px 24px
     legend 
       color: darken($system, 40%)
       padding: 0 10px
-  input, select, textarea 
+  input[type="text"], input[type="password"], input[type="email"], select, textarea 
     border: 1px solid $system
     display: block
-    margin: 0 0 10px 10px
+    margin: 0 0 10px 0
     padding: 4px
+    width: 220px
   input:focus, select:focus, textarea:focus 
     @include transition()
     @include bs(0 0 5px $blue, 0 2px 5px rgba(32,32,32,0.20)inset)
     border: 1px solid darken($system, 40%)
   input[type="checkbox"] 
     margin: 3px 4px 0 2px
+  input[type="checkbox"] + label
+    display: inline-block
   input[type="radio"] 
     margin: 3px 4px 0 0
   label 
     @include font(bold, 0.900em, 1em)
     display: block
     cursor: pointer
-    margin: 0 10px 5px
+    margin: 0 0 5px 0
     input 
       display: inline-block
   input, textarea, select 
@@ -385,7 +392,7 @@ body
   text-rendering: optimizeLegibility
 
 p 
-  @include font(normal, 0.938em, 1.5em)
+  @include font(normal, 0.938em, 1.2em)
 
 li, label 
   @include font(normal, 0.938em, 1.1em)
@@ -441,25 +448,25 @@ em
   font-weight: normal
 
 h1 
-  font-size: 2.6em
-
-h2 
-  font-size: 2.4em
-
-h3 
-  font-size: 2.2em
-
-h4 
   font-size: 2.0em
 
-h5 
-  font-size: 1.8em
-
-h6 
+h2 
   font-size: 1.6em
 
+h3 
+  font-size: 1.4em
+
+h4 
+  font-size: 1.2em
+
+h5 
+  font-size: 1.1em
+
+h6 
+  font-size: 1.0em
+
 h1, h2, h3, h4, h5, h6 
-  margin: 0.2em 0 0.2em 0
+  margin: 20px 0 10px
   font-weight: bold
   letter-spacing: -0.05em
   line-height: 1em
