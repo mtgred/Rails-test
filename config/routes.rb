@@ -1,7 +1,9 @@
 Saas::Application.routes.draw do
   devise_for :users, :path_names => { :sign_up => "signup", :sign_in => "login" , :sign_out => "logout" }
+  resources :accounts
 
-  root :to => "pages#home"
+  root :to => 'pages#home'
+  match 'documentation', :to => 'pages#documentation'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -68,7 +68,7 @@ q:before, q:after, blockquote:before, blockquote:after
   @include nav()
 
 .v-menu 
-  @include nav(none, none, 10px 5px 5px, 0 0 -1px 0)
+  @include nav(none, none, 5px, 0)
 
 .u-menu 
   @include nav(left, right, 10px, 0px)
@@ -184,7 +184,6 @@ hr
 /*********/
 table 
   border-collapse: collapse
-  margin: 0px auto
   font-size: 100%
   caption 
     margin: 1px 0px
@@ -451,24 +450,29 @@ em
 
 h1 
   font-size: 2.0em
+  margin: 16px 0
 
 h2 
   font-size: 1.6em
+  margin: 14px 0
 
 h3 
   font-size: 1.4em
+  margin: 12px 0
 
 h4 
   font-size: 1.2em
+  margin: 10px 0
 
 h5 
   font-size: 1.1em
+  margin: 8px 0
 
 h6 
   font-size: 1.0em
+  margin: 8px 0
 
 h1, h2, h3, h4, h5, h6 
-  margin: 20px 0 10px
   font-weight: bold
   letter-spacing: -0.04em
   line-height: 1em

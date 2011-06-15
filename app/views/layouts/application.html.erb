@@ -22,7 +22,6 @@
     <div class="row">
       <div class="grid-6">
         <h5 class="logo"><%= link_to 'OpenERP', root_path %></h5>
-        <p class="slogan">Open Source Business Applications</p>
       </div> 
       <ul class="grid-10 tar u-menu">
         <% if user_signed_in? %>
@@ -38,18 +37,41 @@
 
   <div id="content">
     <div class="row">
-      <% if notice %>
-      <p class="success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-      <p class="error"><%= alert %></p>
-      <% end %>
-      <%= yield %>
+      <div class="grid-3">
+        <h6 class="title">Overview</h6>
+        <ul class="v-menu">
+          <li><%= link_to 'Dashboard', accounts_path %></li>
+          <li><%= link_to 'Planning', accounts_path %></li>
+          <li><%= link_to 'Invoices', accounts_path %></li>
+        </ul>
+        <h6 class="title">Time &amp; Expenses</h6>
+        <ul class="v-menu">
+          <li><%= link_to 'My Timesheets', accounts_path %></li>
+          <li><%= link_to 'My Expenses', accounts_path %></li>
+        </ul>
+        <h6 class="title">Administration</h6>
+        <ul class="v-menu">
+          <li><%= link_to 'Users', accounts_path %></li>
+          <li><%= link_to 'Accounts', accounts_path %></li>
+        </ul>
+      </div>
+
+      <div class="grid-13">
+        <% if notice %>
+        <p class="success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+        <p class="error"><%= alert %></p>
+        <% end %>
+
+        <%= yield %>
+      </div>
     </div>
   </div>
 
   <footer>
     <div class="row">
+      <%= link_to 'Documentation', documentation_path %>
     </div>
   </footer>
 </div>
