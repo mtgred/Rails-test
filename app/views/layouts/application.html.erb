@@ -26,6 +26,7 @@
       <ul class="grid-10 tar u-menu">
         <% if user_signed_in? %>
           <li><%= link_to 'Sign out', destroy_user_session_path %></li>
+          <li><%= link_to 'Settings', edit_user_registration_path %></li>
           <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_registration_path %></li>
         <% else %>
           <li><%= link_to 'Login', new_user_session_path%></li>
