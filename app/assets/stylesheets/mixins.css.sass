@@ -137,16 +137,16 @@
 
 // Feedback
 @mixin feedback($bg: #E6EDF5, $font-color: #3D98F1, $border: 1px solid #69B9DA)
-  padding: 0.9em
+  padding: 0.8em
   margin-bottom: 1em
   background: $bg
   color: $font-color
   border: $border
+  @include radius(3px)
   a 
     color: white
     background: $font-color
     padding: 2px 5px 0
-    @include radius()
     &:hover 
       background: lighten($font-color, 10%)
 

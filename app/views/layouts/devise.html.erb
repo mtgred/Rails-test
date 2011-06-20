@@ -1,0 +1,18 @@
+<% content_for :stylesheets do %>
+<%= stylesheet_link_tag "login"%>
+<% end %>
+
+<% content_for :body do %>
+  <header>
+  <h1><%= @title %></h1>
+  </header>
+
+  <div class="form">
+  <%= content_tag(:div, flash[:error], :class => "error") if flash[:error] %>
+  <%= content_tag(:div, flash[:notice], :class => "notice") if flash[:notice] %>
+  <%= content_tag(:div, flash[:alert], :class => "alert") if flash[:alert] and !flash[:alert].empty? %>
+  <%= yield %>
+  </div>
+
+<% end %>
+<%= render :file => 'layouts/base' %>

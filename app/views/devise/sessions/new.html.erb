@@ -1,24 +1,16 @@
-<div class="grid-16">
-  <div class="center-form">
-    <h2>Log in</h2>
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-      <fieldset>
-        <%= f.label :email %>
-        <%= f.email_field :email %>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <p><%= f.label :email %><%= f.email_field :email %></p>
+  <p>
+    <%= f.label :password %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+    <%= f.password_field :password %>
+  </p>
 
-        <%= f.label :password %>
-        <%= f.password_field :password %>
+  <% if devise_mapping.rememberable? -%>
+  <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+  <% end -%>
 
-        <% if devise_mapping.rememberable? -%>
-        <%= f.check_box :remember_me %> <%= f.label :remember_me %><br />
-        <% end -%>
+  <p><%= f.submit "Log in" %>
+  No account? <%= link_to 'Sign up', new_user_registration_path %> </p>
+<% end %>
 
-        <%= f.submit "Sign in" %>
-      </fieldset>
-    <% end %>
-
-    <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-      <p><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
-    <% end -%>
-  </div>
-</div>
