@@ -2,6 +2,7 @@ Saas::Application.routes.draw do
   devise_for :users, :path_names => { :sign_up => "signup", :sign_in => "login" , :sign_out => "logout" },
     :controllers => { :sessions => 'sessions', :passwords => 'passwords', :registrations => 'registrations' }
     
+  resources :users
   resources :accounts
 
   root :to => 'pages#home'

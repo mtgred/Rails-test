@@ -31,7 +31,7 @@
       </ul>
       <h6 class="title">Administration</h6>
       <ul class="v-menu">
-        <li><%= link_to 'Users', accounts_path %></li>
+        <li><%= link_to 'Users', users_path %></li>
         <li><%= link_to 'Accounts', accounts_path %></li>
       </ul>
     </div>
@@ -44,6 +44,7 @@
       <p class="error"><%= alert %></p>
       <% end %>
 
+      <h1><%= @title %></h1>
       <%= yield %>
     </div>
   </div>

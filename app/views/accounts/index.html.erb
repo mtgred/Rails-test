@@ -1,3 +1,7 @@
-<h1>Accounts</h1>
+<%= link_to 'New Account', new_account_path, :class => 'btn' %>
 
-<%= render :partial => "shared/list_view", :locals => { :list => @accounts } %>
+<ul>
+  <% @accounts.each do |a| %>
+  <li><%= link_to a.name, a %></td>
+  <% end %>
+</ul>

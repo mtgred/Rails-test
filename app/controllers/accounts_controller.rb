@@ -3,6 +3,7 @@ class AccountsController < ApplicationController
   # GET /accounts.json
   def index
     @accounts = Account.all
+    @title = 'Accounts'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class AccountsController < ApplicationController
   # GET /accounts/1.json
   def show
     @account = Account.find(params[:id])
+    @title = @account.name
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,7 @@ class AccountsController < ApplicationController
   # GET /accounts/new.json
   def new
     @account = Account.new
+    @title = 'New Account'
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +38,7 @@ class AccountsController < ApplicationController
   # GET /accounts/1/edit
   def edit
     @account = Account.find(params[:id])
+    @title = 'Edit'
   end
 
   # POST /accounts

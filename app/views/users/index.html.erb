@@ -1,0 +1,7 @@
+<%= link_to 'Add a new User', new_user_path, :class => 'btn' %>
+
+<ul>
+  <% @users.each do |u| %>
+  <li><%= link_to u.first_name + u.last_name, u %></td>
+  <% end %>
+</ul>
