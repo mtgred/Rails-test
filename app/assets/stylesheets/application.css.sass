@@ -1,8 +1,248 @@
 //= require_self
-@import "config.css.sass"
-@import "mixins.css.sass"
-@import "p-core.css.sass"
-@import "custom.css.sass"
+@import "base.css.sass"
+
+// layout
+html, body
+  height: 100%
+  min-height: 100%
+  margin: 0
+  padding: 0
+
+#wrapper
+  min-height: 100%
+  position: relative
+
+#content
+  padding-bottom: 154px
+
+header
+  @include gradient-v(#3F6587, #1F4567)
+  padding: 12px
+  border-bottom: 1px solid $border-color
+  margin-bottom: 10px
+  a
+    color: white
+    margin-left: 15px
+    &:hover
+      color: #ddd
+
+footer
+  position: absolute
+  bottom: 0
+  width: 100%
+  height: 120px
+  padding-top: 10px
+  background: $gray-lighter
+  @include bs(inset 3px 2px 8px $gray-light)
+  a
+    color: #636C75
+    @include ts(0 1px 1px rgba(255, 255, 255, .5))
+
+.left
+  float: left
+
+.right
+  float: right
+  text-align: right
+
+// Menu
+ul.h-menu
+  li
+    display: inline-block
+
+ul.v-menu 
+  padding: 0
+  li
+    margin: 0 0 5px 12px
+    &:last-child
+      margin-bottom: 15px
+    a:link, a:visited
+      font-size: 13px
+      font-weight: normal
+      line-height: 15px
+
+  //#drops #library > aside > ul li.active a:link,
+  //#drops #library > aside > ul li.active a:visited {
+    //color: #626262
+    //font-weight: bold
+  //}
+
+  //#drops #library > aside > ul li.all a {
+    //background: url('/images/new/item-types/all.png') left center no-repeat
+  //}
+
+  //#drops #library > aside > ul li.popular a {
+    //background: url('/images/new/item-types/popular.png') left center no-repeat
+  //}
+
+  //#drops #library > aside > ul li.image a {
+    //background: url('/images/new/item-types/image.png') left center no-repeat
+  //}
+
+  //#drops #library > aside > ul li.bookmark a {
+    //background: url('/images/new/item-types/bookmark.png') left center no-repeat
+  //}
+
+  //#drops #library > aside > ul li.text a {
+    //background: url('/images/new/item-types/text.png') left center no-repeat
+  //}
+
+  //#drops #library > aside > ul li.archive a {
+    //background: url('/images/new/item-types/archive.png') left center no-repeat
+  //}
+
+  //#drops #library > aside > ul li.audio a {
+    //background: url('/images/new/item-types/audio.png') left center no-repeat
+  //}
+
+  //#drops #library > aside > ul li.video a {
+    //background: url('/images/new/item-types/video.png') left center no-repeat
+  //}
+
+  //#drops #library > aside > ul li.unknown a {
+    //background: url('/images/new/item-types/unknown.png') left center no-repeat
+  //}
+
+  //#drops #library > aside > ul li.trash a {
+    //background: url('/images/new/item-types/trash.png') left center no-repeat
+  //}
+  ///* ------------------------------------------- */
+
+  ///* =recent drops 
+  //---------------------------------------------- */
+  //#drops #library #recent-drops {
+    //float: left
+    //width: 724px
+  //}
+
+// Toolbar
+.toolbar
+  margin-bottom: 15px
+  padding: 6px
+  border: 1px solid $border-color
+  @include gradient-v(#fafafa, #f9f9f9)
+  @include radius(3px)
+
+  //#drops #library #recent-drops ol {
+    //list-style: none
+    //margin: 0
+    //padding: 0
+  //}
+
+  //#drops #library #recent-drops ol li section .title input[type='text'],
+  //#drops #library #recent-drops ol li section .edit {
+    //display: none
+  //}
+
+  //#drops #library #recent-drops ol li.active section .title a {
+    //display: none
+  //}
+
+  //#drops #library #recent-drops ol li.active section .title input[type='text'] {
+    //display: block
+  //}
+
+  //#drops #library #recent-drops ol li aside {
+    //display: none
+  //}
+
+  //#drops #library #recent-drops ol li.active aside {
+    //display: block
+    //font-size: 11px
+  //}
+
+    ///* =list view
+    //---------------------------------------------- */
+    //#drops #library #recent-drops .list li {
+      //border-top: 1px solid #e5e5e5
+      //margin: 0
+    //}
+
+    //#drops #library #recent-drops .list li:last-child {
+      //border-bottom: 1px solid #e5e5e5
+      //margin: 0 0 26px 0
+    //}
+
+    //#drops #library #recent-drops .list li.active {
+      //border: 1px solid #e5e5e5
+      //-moz-border-radius: 3px
+      //-webkit-border-radius: 3px
+      //border-radius: 3px
+      //-moz-box-shadow: 0 0 5px rgba(0, 0, 0, .1)
+      //-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .1)
+      //box-shadow: 0 0 5px rgba(0, 0, 0, .1)
+    //}
+
+    //#drops #library #recent-drops .list li.active + li {
+      //border-top: none
+    //}
+
+    //#drops #library #recent-drops .list li section:after {
+      //clear: both
+      //content: "."
+      //display: block
+      //height: 0
+      //visibility: hidden
+    //}
+
+    //#drops #library #recent-drops .list li section div {
+      //display: inline-block
+      //padding: 8px
+    //}
+
+    //#drops #library #recent-drops .list li section .select {
+      //width: 18px
+    //}
+
+    //#drops #library #recent-drops .list li section .type {
+      //overflow: hidden
+      //vertical-align: middle
+      //width: 16px
+    //}
+
+    //#drops #library #recent-drops .list li section .type .thumbnail {
+      //display: none
+    //}
+
+    //#drops #library #recent-drops .list li section .title {
+      //overflow: hidden
+      //text-overflow: ellipsis
+      //white-space: nowrap
+      //width: 279px
+    //}
+
+    //#drops #library #recent-drops .list li section .title input[type='text'] {
+      //width: 265px
+    //}
+
+    //#drops #library #recent-drops .list li section .time {
+      //color: #a7a7a7
+      //text-align: center
+      //width: 150px
+    //}
+
+    //#drops #library #recent-drops .list li section .views {
+      //font-weight: bold
+      //text-align: right
+      //width: 100px
+    //}
+
+    //#drops #library #recent-drops .list li section .edit {
+      //display: none
+    //}
+
+    //#drops #library #recent-drops .list li aside .privacy {
+      //border-top: 1px dotted #e5e5e5
+      //padding: 8px
+    //}
+
+    //#drops #library #recent-drops .list li aside .privacy em {
+      //color: #a7a7a7
+      //display: inline-block
+      //min-width: 48px
+    //}
+
+
 
 // These styles are for presentational purposes. Delete if needed.
 

@@ -1,7 +1,10 @@
-<%= link_to 'Add a new User', new_user_path, :class => 'btn' %>
+<ul class="toolbar h-menu">
+  <li><%= link_to 'New', new_user_path, :class => 'button' %></li>
+  <li><%= link_to 'Delete', new_user_path, :class => 'button' %></li>
+</ul>
 
 <ul>
   <% @users.each do |u| %>
-  <li><%= link_to u.first_name + u.last_name, u %></td>
+    <li><%= link_to "#{u.first_name} #{u.last_name}", u %></li>
   <% end %>
 </ul>

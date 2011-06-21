@@ -1,19 +1,70 @@
 @import "mixins.css.sass"
 @import "config.css.sass"
 
+// variable
+$shadow: rgba(0, 0, 0, .25)
+$white-ts: rgba(255, 255, 255, .5)
+$heading: #636C75
+$font-color: #626262
+$link-color: #3D98F1
+$border-color: #d9d9d9
+$font: 'Lucida Grande', Helvetica, sans-serif
+
+// Reset
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, a, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video
+  background: transparent
+  border: 0
+  font-size: 100%
+  margin: 0
+  outline: 0
+  padding: 0
+  vertical-align: baseline
+
+ol, ul
+  list-style: none
+
+// Structure
+body
+  color: $font-color
+  font-family: $font
+  font-size: 12px
+
+a 
+  border: none
+  text-decoration: none
+  color: $link-color
+  img 
+    border: none
+    cursor: pointer
+    outline: none
+  &:visited 
+    cursor: pointer
+    outline: none
+  &:hover 
+    cursor: pointer
+    outline: none
+    color: $link-hover-color
+    @include transition()
+  &:active 
+    cursor: pointer
+    outline: none
+
 // Heading
+h1
+  font-size: 20px
+  margin-bottom: 14px
+
 h2
   font-size: 18px
-  margin-bottom: 14px
+  margin-bottom: 12px
 
 h3
   font-size: 14px
-  margin-bottom: 14px
-  margin: 0 0 14px 0
+  margin-bottom: 10px
 
 h4
   font-size: 13px
-  margin-bottom: 12px
+  margin-bottom: 8px
 
 // Forms
 form fieldset
@@ -58,26 +109,17 @@ input[type='text']:focus, input[type='email']:focus, input[type='password']:focu
 // buttons
 a.button:link, a.button:visited, button, input[type='submit']
   background: #eaeaea
-  background: -moz-linear-gradient(top, #efefef, #d8d8d8) #d8d8d8
-  background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#d8d8d8)) #d8d8d8
-  background: linear-gradient(top, #efefef, #d8d8d8) #d8d8d8
   border: 1px solid #ababab
-  -moz-border-radius: 3px
-  -webkit-border-radius: 3px
-  border-radius: 3px
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1), 0 1px 1px rgba(255, 255, 255, .8) inset
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1), 0 1px 1px rgba(255, 255, 255, .8) inset
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .1), 0 1px 1px rgba(255, 255, 255, .8) inset
   color: #707070
-  font-family: 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif
-  font-size: 12px
-  -webkit-font-smoothing: antialiased
-  font-weight: bold
-  margin-right: 8px
-  outline: none
+  //margin: 0 8px 18px 0
   padding: 5px 10px
   text-align: center
+  @include gradient-v(#efefef, #d8d8d8)
+  @include radius(3px)
+  @include bs(0 1px 2px rgba(0, 0, 0, .1), 0 1px 1px rgba(255, 255, 255, .8) inset)
   text-shadow: 0 1px 1px rgba(255, 255, 255, .5)
+  -webkit-font-smoothing: antialiased
+  outline: none
 
 a.button:hover,  button:hover,  input[type='submit']:hover
   background: #f1f1f1
@@ -154,6 +196,60 @@ a.button.green:active,    a.button.green.active,    button.green:active,    inpu
 
 .right
   float: right
+
+// Grid
+.column 
+  display: inline
+  float: left
+  margin: 0 $margin
+  overflow: hidden
+
+.row 
+  width: $width
+  margin: 0 auto
+  overflow: hidden
+  position: relative
+  .row 
+    margin: 0 - $margin
+    width: auto
+    display: inline-block
+  
+@mixin grid($rowwidth: 16)
+  width: ( $rowwidth * ($width / $columns)- (2 * $margin))+ (2 *  0 * $margin)
+  @extend .column
+
+.grid-1 
+  @include grid(1)
+.grid-2 
+  @include grid(2)
+.grid-3 
+  @include grid(3)
+.grid-4 
+  @include grid(4)
+.grid-5 
+  @include grid(5)
+.grid-6 
+  @include grid(6)
+.grid-7 
+  @include grid(7)
+.grid-8 
+  @include grid(8)
+.grid-9 
+  @include grid(9)
+.grid-10 
+  @include grid(10)
+.grid-11 
+  @include grid(11)
+.grid-12 
+  @include grid(12)
+.grid-13 
+  @include grid(13)
+.grid-14 
+  @include grid(14)
+.grid-15 
+  @include grid(15)
+.grid-16 
+  @include grid(16)
 
 // Notification
 .alert
