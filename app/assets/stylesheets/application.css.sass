@@ -62,55 +62,55 @@ ul.v-menu
       line-height: 15px
 
   //#drops #library > aside > ul li.active a:link,
-  //#drops #library > aside > ul li.active a:visited {
+  //#drops #library > aside > ul li.active a:visited
     //color: #626262
     //font-weight: bold
   //}
 
-  //#drops #library > aside > ul li.all a {
+  //#drops #library > aside > ul li.all a
     //background: url('/images/new/item-types/all.png') left center no-repeat
   //}
 
-  //#drops #library > aside > ul li.popular a {
+  //#drops #library > aside > ul li.popular a
     //background: url('/images/new/item-types/popular.png') left center no-repeat
   //}
 
-  //#drops #library > aside > ul li.image a {
+  //#drops #library > aside > ul li.image a
     //background: url('/images/new/item-types/image.png') left center no-repeat
   //}
 
-  //#drops #library > aside > ul li.bookmark a {
+  //#drops #library > aside > ul li.bookmark a
     //background: url('/images/new/item-types/bookmark.png') left center no-repeat
   //}
 
-  //#drops #library > aside > ul li.text a {
+  //#drops #library > aside > ul li.text a
     //background: url('/images/new/item-types/text.png') left center no-repeat
   //}
 
-  //#drops #library > aside > ul li.archive a {
+  //#drops #library > aside > ul li.archive a
     //background: url('/images/new/item-types/archive.png') left center no-repeat
   //}
 
-  //#drops #library > aside > ul li.audio a {
+  //#drops #library > aside > ul li.audio a
     //background: url('/images/new/item-types/audio.png') left center no-repeat
   //}
 
-  //#drops #library > aside > ul li.video a {
+  //#drops #library > aside > ul li.video a
     //background: url('/images/new/item-types/video.png') left center no-repeat
   //}
 
-  //#drops #library > aside > ul li.unknown a {
+  //#drops #library > aside > ul li.unknown a
     //background: url('/images/new/item-types/unknown.png') left center no-repeat
   //}
 
-  //#drops #library > aside > ul li.trash a {
+  //#drops #library > aside > ul li.trash a
     //background: url('/images/new/item-types/trash.png') left center no-repeat
   //}
   ///* ------------------------------------------- */
 
   ///* =recent drops 
   //---------------------------------------------- */
-  //#drops #library #recent-drops {
+  //#drops #library #recent-drops
     //float: left
     //width: 724px
   //}
@@ -123,125 +123,107 @@ ul.v-menu
   @include gradient-v(#fafafa, #f9f9f9)
   @include radius(3px)
 
-  //#drops #library #recent-drops ol {
+  //ol
     //list-style: none
     //margin: 0
     //padding: 0
   //}
 
-  //#drops #library #recent-drops ol li section .title input[type='text'],
-  //#drops #library #recent-drops ol li section .edit {
+  //ol li section .title input[type='text'],
+  //ol li section .edit
     //display: none
   //}
 
-  //#drops #library #recent-drops ol li.active section .title a {
+  //ol li.active section .title a
     //display: none
   //}
 
-  //#drops #library #recent-drops ol li.active section .title input[type='text'] {
+  //ol li.active section .title input[type='text']
     //display: block
   //}
 
-  //#drops #library #recent-drops ol li aside {
+  //ol li aside
     //display: none
   //}
 
-  //#drops #library #recent-drops ol li.active aside {
+  //ol li.active aside
     //display: block
     //font-size: 11px
   //}
 
-    ///* =list view
-    //---------------------------------------------- */
-    //#drops #library #recent-drops .list li {
-      //border-top: 1px solid #e5e5e5
-      //margin: 0
-    //}
+// List view
+.list li
+  border-top: 1px solid #e5e5e5
+  margin: 0
 
-    //#drops #library #recent-drops .list li:last-child {
-      //border-bottom: 1px solid #e5e5e5
-      //margin: 0 0 26px 0
-    //}
+.list li:last-child
+  border-bottom: 1px solid #e5e5e5
+  margin: 0 0 26px 0
 
-    //#drops #library #recent-drops .list li.active {
-      //border: 1px solid #e5e5e5
-      //-moz-border-radius: 3px
-      //-webkit-border-radius: 3px
-      //border-radius: 3px
-      //-moz-box-shadow: 0 0 5px rgba(0, 0, 0, .1)
-      //-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .1)
-      //box-shadow: 0 0 5px rgba(0, 0, 0, .1)
-    //}
+.list li.active
+  border: 1px solid #e5e5e5
+  -moz-border-radius: 3px
+  -webkit-border-radius: 3px
+  border-radius: 3px
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .1)
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .1)
+  box-shadow: 0 0 5px rgba(0, 0, 0, .1)
 
-    //#drops #library #recent-drops .list li.active + li {
-      //border-top: none
-    //}
+.list li.active + li
+  border-top: none
 
-    //#drops #library #recent-drops .list li section:after {
-      //clear: both
-      //content: "."
-      //display: block
-      //height: 0
-      //visibility: hidden
-    //}
+.list li section:after
+  clear: both
+  content: "."
+  display: block
+  height: 0
+  visibility: hidden
 
-    //#drops #library #recent-drops .list li section div {
-      //display: inline-block
-      //padding: 8px
-    //}
+.list li section div
+  display: inline-block
+  padding: 6px
 
-    //#drops #library #recent-drops .list li section .select {
-      //width: 18px
-    //}
+.list li section .select
+  width: 10px
 
-    //#drops #library #recent-drops .list li section .type {
-      //overflow: hidden
-      //vertical-align: middle
-      //width: 16px
-    //}
+.list li section .type
+  overflow: hidden
+  vertical-align: middle
+  width: 16px
 
-    //#drops #library #recent-drops .list li section .type .thumbnail {
-      //display: none
-    //}
+.list li section .type .thumbnail
+  display: none
 
-    //#drops #library #recent-drops .list li section .title {
-      //overflow: hidden
-      //text-overflow: ellipsis
-      //white-space: nowrap
-      //width: 279px
-    //}
+.list li section .title
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+  width: 279px
 
-    //#drops #library #recent-drops .list li section .title input[type='text'] {
-      //width: 265px
-    //}
+.list li section .title input[type='text']
+  width: 265px
 
-    //#drops #library #recent-drops .list li section .time {
-      //color: #a7a7a7
-      //text-align: center
-      //width: 150px
-    //}
+.list li section .time
+  color: #a7a7a7
+  text-align: center
+  width: 150px
 
-    //#drops #library #recent-drops .list li section .views {
-      //font-weight: bold
-      //text-align: right
-      //width: 100px
-    //}
+.list li section .views
+  font-weight: bold
+  text-align: right
+  width: 100px
 
-    //#drops #library #recent-drops .list li section .edit {
-      //display: none
-    //}
+.list li section .edit
+  display: none
 
-    //#drops #library #recent-drops .list li aside .privacy {
-      //border-top: 1px dotted #e5e5e5
-      //padding: 8px
-    //}
+.list li aside .privacy
+  border-top: 1px dotted #e5e5e5
+  padding: 8px
 
-    //#drops #library #recent-drops .list li aside .privacy em {
-      //color: #a7a7a7
-      //display: inline-block
-      //min-width: 48px
-    //}
-
+.list li aside .privacy em
+  color: #a7a7a7
+  display: inline-block
+  min-width: 48px
 
 
 // These styles are for presentational purposes. Delete if needed.

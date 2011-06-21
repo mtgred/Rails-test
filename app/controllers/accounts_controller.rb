@@ -84,4 +84,9 @@ class AccountsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def destroy_selected
+    Account.delete_all :id => params[:account_ids]
+    redirect_to accounts_url
+  end
 end

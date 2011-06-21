@@ -3,7 +3,11 @@ Saas::Application.routes.draw do
     :controllers => { :sessions => 'sessions', :passwords => 'passwords', :registrations => 'registrations' }
     
   resources :users
-  resources :accounts
+  resources :accounts do
+    collection do
+      delete :destroy_selected
+    end
+  end
 
   root :to => 'pages#home'
   match 'documentation', :to => 'pages#documentation'

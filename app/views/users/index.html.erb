@@ -1,10 +1,15 @@
 <ul class="toolbar h-menu">
   <li><%= link_to 'New', new_user_path, :class => 'button' %></li>
-  <li><%= link_to 'Delete', new_user_path, :class => 'button' %></li>
+  <li><%= link_to 'Delete', '#', :class => 'button' %></li>
 </ul>
 
-<ul>
+<ul class="list">
   <% @users.each do |u| %>
-    <li><%= link_to "#{u.first_name} #{u.last_name}", u %></li>
+  <li>
+    <section>
+    <div class="select"><input type="checkbox"></div>
+    <div class="title"><%= link_to "#{u.first_name} #{u.last_name}", u %></div>
+    </section>
+  </li>
   <% end %>
 </ul>
