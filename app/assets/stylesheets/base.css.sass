@@ -40,12 +40,13 @@ dl
     border-top: 1px solid $border-color
     &:last-child
       border-bottom: 1px solid $border-color
-  
   dt 
     float: left
     font-weight: bold
     margin-right: 10px
     width: 120px
+  dd
+    display: inline-block
 
 a 
   border: none
@@ -103,7 +104,7 @@ label
     font-weight: normal
     margin: 0 0 0 8px
  
-input[type='text'], input[type='password'], input[type='email'], textarea
+input[type='text'], input[type='password'], input[type='email'], textarea, select
   display: block
   margin: 4px 0 0 0
   border: 1px solid #ccc
@@ -117,7 +118,7 @@ input[type='text'], input[type='password'], input[type='email'], textarea
   @include bs(0 1px 2px rgba(0, 0, 0, .15) inset)
   @include transition(border .2s linear)
 
-input[type='text']:focus, input[type='email']:focus, input[type='password']:focus, textarea:focus
+input[type='text']:focus, input[type='email']:focus, input[type='password']:focus, textarea:focus, select:focus
   border: 1px solid #80bfff
   @include bs(0 0 3px #80bfff, 0 1px 2px rgba(0, 0, 0, .15) inset)
 

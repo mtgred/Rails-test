@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @title = "#{@user.first_name} #{@user.last_name}"
+    @title = @user.full_name
   end
 
   def new
@@ -26,6 +26,22 @@ class UsersController < ApplicationController
     else
        render action: "new"
     end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    puts params
+    if @user.update_attributes(params[:user])
+      redirect_to users_url
+    else
+      render action: "edit"
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_url
   end
 
   def destroy_selected
