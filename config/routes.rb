@@ -1,8 +1,11 @@
 Saas::Application.routes.draw do
-  devise_for :users, :path_names => { :sign_up => "signup", :sign_in => "login" , :sign_out => "logout" },
-    :controllers => { :sessions => 'sessions', :passwords => 'passwords', :registrations => 'registrations' }
+  devise_for :users, :path_names => { :sign_up => "signup", :sign_in => "login" , :sign_out => "logout" }, :controllers => { :sessions => 'sessions', :passwords => 'passwords', :registrations => 'registrations' }, :path_prefix => 'd'
     
-  resources :users
+  resources :users do
+    collection do
+      delete :destroy_selected
+    end
+  end
   resources :accounts do
     collection do
       delete :destroy_selected

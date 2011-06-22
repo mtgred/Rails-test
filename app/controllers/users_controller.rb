@@ -18,4 +18,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @title = "Edit"
   end
+
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+       redirect_to users_url
+    else
+       render action: "new"
+    end
+  end
+
+  def destroy_selected
+    User.delete_all :id => params[:user_ids]
+    redirect_to users_url
+  end
 end

@@ -1,6 +1,7 @@
-<p><b>First Name:</b> <%= @user.first_name %></p>
-<p><b>Last Name:</b> <%= @user.last_name %></p>
-<p><b>Email:</b> <%= @user.email %></p>
+<dl>
+  <div><dt>First Name</dt> <dd><%= @user.first_name %></dd></div>
+  <div><dt>Last Name</dt> <dd><%= @user.last_name %></dd></div>
+  <div><dt>Email</dt> <dd><%= @user.email %></dd></div>
+</dl>
 
-<%= link_to 'Edit', edit_user_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
+<%= link_to 'Edit', edit_user_path(@account) %>
