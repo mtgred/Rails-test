@@ -2,7 +2,7 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.scoped
+    @accounts = Account.all
     @title = 'Accounts'
 
     respond_to do |format|
@@ -27,7 +27,6 @@ class AccountsController < ApplicationController
   # GET /accounts/new.json
   def new
     @account = Account.new
-    @accounts = Account.all
     @title = 'New Account'
 
     respond_to do |format|
@@ -39,7 +38,6 @@ class AccountsController < ApplicationController
   # GET /accounts/1/edit
   def edit
     @account = Account.find(params[:id])
-    @accounts = Account.where(["id NOT IN (?)", @account.subtree_ids])
     @title = 'Edit'
   end
 
@@ -47,10 +45,6 @@ class AccountsController < ApplicationController
   # POST /accounts.json
   def create
     @account = Account.new(params[:account])
-    logger.debug "#{params[:account]}"
-    logger.debug "#{@account}"
-    @account.ancestry = nil if @account.ancestry.empty?
-    @accounts = Account.all
 
     respond_to do |format|
       if @account.save

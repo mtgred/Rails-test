@@ -1,13 +1,13 @@
 <dl>
-  <div><dt>First Name</dt><dd><%= @user.first_name %></dd></div>
-  <div><dt>Last Name</dt><dd><%= @user.last_name %></dd></div>
-  <div><dt>Email</dt><dd><%= mail_to @user.email %></dd></div>
-  <div><dt>Department</dt><dd><%= @user.department %></dd></div>
-  <div><dt>Role</dt><dd><%= @user.role %></dd></div>
-  <div><dt>Office Phone</dt><dd><%= @user.office_phone %></dd></div>
-  <div><dt>Mobile Phone</dt><dd><%= @user.mobile_phone %></dd></div>
-  <div><dt>Address</dt><dd><%= @user.address %></dd></div>
-  <div><dt>Manager</dt><dd><%= link_to @user.manager.full_name, @user.manager if @user.manager %></dd></div>
+  <div><dt>First Name</dt> <dd><%= @user.first_name %></dd></div>
+  <div><dt>Last Name</dt> <dd><%= @user.last_name %></dd></div>
+  <div><dt>Email</dt> <dd><%= mail_to @user.email %></dd></div>
+  <div><dt>Department</dt> <dd><%= @user.department %></dd></div>
+  <div><dt>Role</dt> <dd><%= @user.role %></dd></div>
+  <div><dt>Office Phone</dt> <dd><%= @user.office_phone %></dd></div>
+  <div><dt>Mobile Phone</dt> <dd><%= @user.mobile_phone %></dd></div>
+  <div><dt>Address</dt> <dd><%= @user.address %></dd></div>
+  <div><dt>Manager</dt> <dd><%= link_to @user.manager.full_name, @user.manager if @user.manager %></dd></div>
 </dl>
 
 <%= link_to 'Edit', edit_user_path(@user), :class => 'button' %>

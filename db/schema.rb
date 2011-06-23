@@ -10,16 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622130414) do
+ActiveRecord::Schema.define(:version => 20110622062940) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "ancestry"
   end
-
-  add_index "accounts", ["ancestry"], :name => "index_accounts_on_ancestry"
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
