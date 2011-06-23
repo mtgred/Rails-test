@@ -13,6 +13,7 @@
 
   <div class="field">
     <p><%= f.label :name %> <%= f.text_field :name %></p>
+    <p><%= f.label :parent_account %> <%= collection_select :account, :parent_id, @accounts, :id, :name, :include_blank => true %></p>
   </div>
   <div class="actions">
     <%= f.submit %>
