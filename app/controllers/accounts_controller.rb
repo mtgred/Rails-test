@@ -39,7 +39,7 @@ class AccountsController < ApplicationController
   # GET /accounts/1/edit
   def edit
     @account = Account.find(params[:id])
-    @accounts = Account.where(["id NOT IN (?)", @account.subtree_ids])
+    @accounts = Account.where("id NOT IN (?)", @account.subtree_ids)
     @title = 'Edit'
   end
 

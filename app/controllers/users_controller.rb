@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.scoped
     @title = 'Users'
   end
 
@@ -11,11 +11,13 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @users = User.all
     @title = "New User"
   end
 
   def edit
     @user = User.find(params[:id])
+    @users = User.where("id NOT IN (?)", @user.subtree_ids)
     @title = "Edit"
   end
 

@@ -24,7 +24,7 @@
     <p><%= f.label :office_phone %> <%= f.text_field :office_phone %></p>
     <p><%= f.label :mobile_phone %> <%= f.text_field :mobile_phone %></p>
     <p><%= f.label :address %> <%= f.text_field :address %></p>
-    <p><%= f.label :manager_id %> <%= collection_select :user, :manager_id, User.all, :id, :full_name, :prompt => true %></p>
+    <p><%= f.label :manager %> <%= collection_select :user, :parent_id, @users, :id, :full_name, :include_blank => true %></p>
   </div>
   <div class="actions">
     <%= f.submit %>
