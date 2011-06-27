@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/jchunky/table_builder.git
+  revision: 861e57bc1c1cddcf877db950fb400226be15ea71
+  specs:
+    table_builder (0.0.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -36,7 +42,6 @@ GEM
     annotate-models (1.0.4)
     ansi (1.2.5)
     arel (2.1.1)
-    babosa (0.3.5)
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
     chunky_png (1.2.0)
@@ -55,8 +60,6 @@ GEM
     erubis (2.7.0)
     execjs (1.1.2)
       multi_json (~> 1.0)
-    friendly_id (3.3.0.alpha2)
-      babosa (~> 0.3.0)
     fssm (0.2.7)
     hike (1.0.0)
     i18n (0.6.0)
@@ -103,6 +106,7 @@ GEM
       railties (~> 3.1.0.rc1)
       sass (>= 3.1.2)
       sprockets (>= 2.0.0.beta.9)
+    simple_form (1.4.1)
     sprockets (2.0.0.beta.10)
       hike (~> 1.0)
       rack (~> 1.0)
@@ -130,10 +134,11 @@ DEPENDENCIES
   coffee-script
   compass
   devise
-  friendly_id (~> 3.3.0.alpha2)
   jquery-rails
   rails (= 3.1.0.rc4)
   sass-rails (~> 3.1.0.rc)
+  simple_form
   sqlite3
+  table_builder (= 0.0.3)!
   turn
   uglifier

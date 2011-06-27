@@ -1,0 +1,39 @@
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "( ", { :month => (@date.beginning_of_month-1).strftime("%Y-%m-01") }, { :class => 'i' } %> 
+  <%= h @date.strftime("%B %Y") %>
+  <%= link_to " )", { :month => (@date.end_of_month+1).strftime("%Y-%m-01") }, { :class => 'i' } %>  
+  </h2>
+
+  <%= calendar_for @timesheets, :year => @date.year, :month => @date.month, :first_day_of_week => 1 do |cal| %>
+  <%= cal.head('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday') %>
+  <%= cal.day(:day_method => :day) do |date, timesheets| %>
+    <%= date.day %>
+    <ul>
+    <% for t in timesheets %>
+      <li><%= link_to t.account.name, edit_timesheet_path(t) %></li>
+    <% end %>
+    </ul>
+  <% end %>
+<% end %>
+</div>
+
+<h2>Add entries</h2>
+
+<%= simple_form_for @timesheet do |f| %>  
+  <%= f.association :account %>  
+  <%= f.input :hours, :collection => 1..16, :label => 'Hours per day', :selected => '8' %>  
+  <p><%= label_tag :from, "From" %><%= text_field_tag :from, @start_day %></p>
+  <p><%= label_tag :to, "To"%><%= text_field_tag :to, @start_day + 4 %></p>
+  <p><%= label_tag 'For these days'%></p>
+  <p>
+  <%= check_box_tag "days[]", '1', true, :id => :monday %> <%= label_tag :monday, 'Monday'%>
+  <%= check_box_tag "days[]", '2', true, :id => :tuesday %> <%= label_tag :tuesday, 'Tuesday'%>
+  <%= check_box_tag "days[]", '3', true, :id => :wednesday %> <%= label_tag :wednesday, 'Wednesday'%>
+  <%= check_box_tag "days[]", '4', true, :id => :thursday %> <%= label_tag :thursday, 'Thursday'%>
+  <%= check_box_tag "days[]", '5', true, :id => :friday %> <%= label_tag :friday, 'Friday'%>
+  <%= check_box_tag "days[]", '6', false, :id => :saturday %> <%= label_tag :saturday, 'Saturday'%>
+  <%= check_box_tag "days[]", '0', false, :id => :sunday %> <%= label_tag :sunday, 'Sunday'%>
+  </p>
+  <p><%= f.button :submit, 'Add' %></p> 
+<% end %>  

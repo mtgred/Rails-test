@@ -1,4 +1,6 @@
 Saas::Application.routes.draw do
+  resources :timesheets
+
   devise_for :users, :path_names => { :sign_up => "signup", :sign_in => "login" , :sign_out => "logout" }, :controllers => { :sessions => 'sessions', :passwords => 'passwords', :registrations => 'registrations' }, :path_prefix => 'd'
     
   resources :users do

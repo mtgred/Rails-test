@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  account: 
+  day: 2011-06-23
+
+two:
+  user: 
+  account: 
+  day: 2011-06-23

@@ -8,9 +8,10 @@ gem 'compass', :require => false
 
 gem 'sqlite3'
 gem 'devise'
-gem 'friendly_id', "~> 3.3.0.alpha2"
-gem 'annotate-models'
 gem 'ancestry'
+gem 'table_builder', '0.0.3', :git => 'git://github.com/jchunky/table_builder.git'
+gem 'simple_form'
+gem 'annotate-models'
 
 # Asset template engines
 gem 'sass-rails', "~> 3.1.0.rc"

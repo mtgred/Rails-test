@@ -30,12 +30,14 @@ footer
   bottom: 0
   width: 100%
   height: 120px
-  padding-top: 15px
+  padding-top: 12px
   background: $gray-lighter
   @include bs(inset 3px 2px 8px $gray-light)
   a
-    color: #636C75
+    color: #333
     @include ts(0 1px 1px rgba(255, 255, 255, .5))
+    &:hover
+      color: $hover-color
 
 .left
   float: left
@@ -64,47 +66,47 @@ ul.v-menu
   //#drops #library > aside > ul li.active a:visited
     //color: #626262
     //font-weight: bold
-  //}
+  //
 
   //#drops #library > aside > ul li.all a
     //background: url('/images/new/item-types/all.png') left center no-repeat
-  //}
+  //
 
   //#drops #library > aside > ul li.popular a
     //background: url('/images/new/item-types/popular.png') left center no-repeat
-  //}
+  //
 
   //#drops #library > aside > ul li.image a
     //background: url('/images/new/item-types/image.png') left center no-repeat
-  //}
+  //
 
   //#drops #library > aside > ul li.bookmark a
     //background: url('/images/new/item-types/bookmark.png') left center no-repeat
-  //}
+  //
 
   //#drops #library > aside > ul li.text a
     //background: url('/images/new/item-types/text.png') left center no-repeat
-  //}
+  //
 
   //#drops #library > aside > ul li.archive a
     //background: url('/images/new/item-types/archive.png') left center no-repeat
-  //}
+  //
 
   //#drops #library > aside > ul li.audio a
     //background: url('/images/new/item-types/audio.png') left center no-repeat
-  //}
+  //
 
   //#drops #library > aside > ul li.video a
     //background: url('/images/new/item-types/video.png') left center no-repeat
-  //}
+  //
 
   //#drops #library > aside > ul li.unknown a
     //background: url('/images/new/item-types/unknown.png') left center no-repeat
-  //}
+  //
 
   //#drops #library > aside > ul li.trash a
     //background: url('/images/new/item-types/trash.png') left center no-repeat
-  //}
+  //
   ///* ------------------------------------------- */
 
   ///* =recent drops 
@@ -112,7 +114,7 @@ ul.v-menu
   //#drops #library #recent-drops
     //float: left
     //width: 724px
-  //}
+  //
 
 // Toolbar
 .toolbar
@@ -126,29 +128,29 @@ ul.v-menu
     //list-style: none
     //margin: 0
     //padding: 0
-  //}
+  //
 
   //ol li section .title input[type='text'],
   //ol li section .edit
     //display: none
-  //}
+  //
 
   //ol li.active section .title a
     //display: none
-  //}
+  //
 
   //ol li.active section .title input[type='text']
     //display: block
-  //}
+  //
 
   //ol li aside
     //display: none
-  //}
+  //
 
   //ol li.active aside
     //display: block
     //font-size: 11px
-  //}
+  //
 
 // List view
 .list li
@@ -227,6 +229,68 @@ ul.v-menu
 .nested
   margin-left: 22px
 
+// Calendar
+#calendar table 
+  border-collapse: collapse
+  width: 100%
+
+#calendar td, #calendar th 
+  font-size: 11px
+  padding: 5px
+  border: 1px solid #999
+
+#calendar th 
+  background: $gray-lighter
+  color: #666
+  text-align: center
+  width: 14.2857142857143%
+
+#calendar td 
+  background: #FFF
+  color: #777
+  height: 80px
+  vertical-align: top
+
+#calendar .notmonth 
+  color: #BBB
+
+#calendar #month 
+  margin: 0
+  padding-bottom: 10px
+  text-align: center
+
+#calendar #month a, #calendar #month a:hover 
+  color: #999
+
+#calendar .today 
+  background-color: #D7F2FF
+
+#calendar ul 
+  margin: 0
+  margin-top: 5px
+  padding: 0
+
+#calendar li 
+  margin: 0
+  padding: 3px
+  font-size: 10px
+  border: 1px solid $gray
+  @include radius(3px)
+
+
+/**************/
+/* MNML Icons */
+/**************/
+@font-face 
+  font-family: 'mnmliconsRegular'
+  src: url('/fonts/mnmliconsv21-webfont.eot')
+  src: url('/fonts/mnmliconsv21-webfont.eot?#iefix') format('eot'), url('/fonts/mnmliconsv21-webfont.woff') format('woff'), url('/fonts/mnmliconsv21-webfont.ttf') format('truetype'), url('/fonts/mnmliconsv21-webfont.svg#webfont5XBFMzrm') format('svg')
+  font-weight: normal
+  font-style: normal
+
+.i 
+  font-family: "mnmliconsRegular" !important
+  font-size: 20px
 
 // These styles are for presentational purposes. Delete if needed.
 

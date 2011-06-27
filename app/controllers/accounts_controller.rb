@@ -47,8 +47,6 @@ class AccountsController < ApplicationController
   # POST /accounts.json
   def create
     @account = Account.new(params[:account])
-    logger.debug "#{params[:account]}"
-    logger.debug "#{@account}"
     @account.ancestry = nil if @account.ancestry.empty?
     @accounts = Account.all
 

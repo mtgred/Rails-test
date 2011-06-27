@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110623014125) do
+ActiveRecord::Schema.define(:version => 20110623182100) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(:version => 20110623014125) do
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
+  create_table "timesheets", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.date     "day"
+    t.integer  "hours"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "timesheets", ["account_id"], :name => "index_timesheets_on_account_id"
+  add_index "timesheets", ["user_id"], :name => "index_timesheets_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
