@@ -98,10 +98,15 @@ class TimesheetsController < ApplicationController
   # DELETE /timesheets/1.json
   def destroy
     @timesheet = Timesheet.find(params[:id])
+    @date = @timesheet.day
     @timesheet.destroy
 
+    @timesheets = current_user.timesheets
+    @title = "My Timesheets"
+    @start_day = Date.today.beginning_of_week 
+
     respond_to do |format|
-      format.html { redirect_to timesheets_url }
+      format.html { render :index }
       format.json { head :ok }
     end
   end
