@@ -3,7 +3,7 @@ class TimesheetsController < ApplicationController
   # GET /timesheets.json
   def index
     @timesheets = current_user.timesheets
-    @timesheet = Timesheet.new :user => current_user
+    @timesheet = Timesheet.new
     @title = "My Timesheets"
     @start_day = Date.today.beginning_of_week 
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
@@ -28,7 +28,7 @@ class TimesheetsController < ApplicationController
   # GET /timesheets/new
   # GET /timesheets/new.json
   def new
-    @timesheet = Timesheet.new :user => current_user
+    @timesheet = Timesheet.new
     @accounts = Account.all
 
     respond_to do |format|
@@ -47,17 +47,25 @@ class TimesheetsController < ApplicationController
   # POST /timesheets
   # POST /timesheets.json
   def create
-    logger.debug params
     days = params[:days].map {|d| d.to_i}
     for d in params[:from].to_date..params[:to].to_date
       if days.include? d.wday
         @timesheet = Timesheet.new params[:timesheet]
         @timesheet.update_attributes :user => current_user, :day => d
         logger.debug @timesheet.attributes.inspect
-        @timesheet.save
+        error = true unless @timesheet.save
       end
     end
-    redirect_to timesheets_path
+
+    if error
+      @timesheets = current_user.timesheets
+      @title = "My Timesheets"
+      @start_day = Date.today.beginning_of_week 
+      @date = params[:month] ? Date.parse(params[:month]) : Date.today
+      render "index" 
+    else
+      redirect_to timesheets_path 
+    end
 
     #respond_to do |format|
       #if @timesheet.save

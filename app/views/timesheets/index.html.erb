@@ -21,11 +21,15 @@
 <h2>Add entries</h2>
 
 <%= simple_form_for @timesheet do |f| %>  
-  <%= f.association :account %>  
   <%= f.input :hours, :collection => 1..16, :label => 'Hours per day', :selected => '8' %>  
-  <p><%= label_tag :from, "From" %><%= text_field_tag :from, @start_day %></p>
-  <p><%= label_tag :to, "To"%><%= text_field_tag :to, @start_day + 4 %></p>
-  <p><%= label_tag 'For these days'%></p>
+  <%= f.association :account %>  
+  <p>
+    <div class="ib">
+      <%= label_tag :from, "From" %><%= text_field_tag :from, @start_day, :class => 'date' %>
+    </div>
+    <div class="ib">
+      <%= label_tag :to, "To"%><%= text_field_tag :to, @start_day + 4, :class => 'date' %></p>
+    </div>
   <p>
   <%= check_box_tag "days[]", '1', true, :id => :monday %> <%= label_tag :monday, 'Monday'%>
   <%= check_box_tag "days[]", '2', true, :id => :tuesday %> <%= label_tag :tuesday, 'Tuesday'%>
@@ -34,6 +38,7 @@
   <%= check_box_tag "days[]", '5', true, :id => :friday %> <%= label_tag :friday, 'Friday'%>
   <%= check_box_tag "days[]", '6', false, :id => :saturday %> <%= label_tag :saturday, 'Saturday'%>
   <%= check_box_tag "days[]", '0', false, :id => :sunday %> <%= label_tag :sunday, 'Sunday'%>
+  <%= hidden_field_tag :month, @date %>
   </p>
   <p><%= f.button :submit, 'Add' %></p> 
 <% end %>  
