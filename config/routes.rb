@@ -1,8 +1,10 @@
 Saas::Application.routes.draw do
+  match 'timesheets/:y/:m', :to => 'timesheets#index', :constraints => { :y => /\d{4}/, :m => /[01]?\d/, :d => /[0-3]?\d/ },:as => :timesheets_month, :via => :get
+  match 'timesheets/:y/:m', :to => 'timesheets#bulk_create', :constraints => { :y => /\d{4}/, :m => /[01]?\d/, :d => /[0-3]?\d/ },:as => :timesheets_month, :via => :post
+  match 'timesheets/new/:y/:m/:d', :to => 'timesheets#new', :constraints => { :y => /\d{4}/, :m => /[01]?\d/, :d => /[0-3]?\d/ }, :as => :new_timesheet_day, :via => :get
+
   resources :timesheets
 
-  devise_for :users, :path_names => { :sign_up => "signup", :sign_in => "login" , :sign_out => "logout" }, :controllers => { :sessions => 'sessions', :passwords => 'passwords', :registrations => 'registrations' }, :path_prefix => 'd'
-    
   resources :users do
     collection do
       delete :destroy_selected
@@ -14,6 +16,8 @@ Saas::Application.routes.draw do
     end
   end
 
+  devise_for :users, :path_names => { :sign_up => "signup", :sign_in => "login" , :sign_out => "logout" }, :controllers => { :sessions => 'sessions', :passwords => 'passwords', :registrations => 'registrations' }, :path_prefix => 'd'
+    
   root :to => 'pages#home'
   match 'documentation', :to => 'pages#documentation'
 

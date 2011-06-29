@@ -1,4 +1,4 @@
-<%= simple_form_for(@timesheet) do |f| %>
+<%= simple_form_for @timesheet, :y => @date.year, :m => @date.month, :d => @date.day do |f| %>
   <% if @timesheet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@timesheet.errors.count, "error") %> prohibited this timesheet from being saved:</h2>
@@ -11,9 +11,10 @@
   <% end %>
 
   <%= f.association :account %>
-  <%= f.input :day, :as => :string, :input_html => { :class => 'date' } %>
+  <%= f.hidden_field :day %>
   <%= f.input :hours, :collection => 1..16, :label => 'Hours', :selected => '8' %>  
 
-  <%= f.button :submit, 'Update' %>
-  <%= link_to 'Delete', timesheet_path(@timesheet), :confirm => 'Are you sure?', :method => :delete, :class => 'button' %>
+  <%= f.button :submit %>
+  <%= link_to('Delete', timesheet_path(@timesheet), :confirm => 'Are you sure?', :method => :delete, :class => 'button') if params[:action] == 'edit' %>
 <% end %>
+

@@ -1,14 +1,15 @@
 <div id="calendar">
   <h2 id="month">
-    <%= link_to "( ", { :month => (@date.beginning_of_month-1).strftime("%Y-%m-01") }, { :class => 'i' } %> 
+    <%= link_to "( ", timesheets_month_path(:y => @date.year, :m => @date.month - 1), { :class => 'i' } %> 
   <%= h @date.strftime("%B %Y") %>
-  <%= link_to " )", { :month => (@date.end_of_month+1).strftime("%Y-%m-01") }, { :class => 'i' } %>  
+  <%= link_to " )", timesheets_month_path(:y => @date.year, :m => @date.month + 1), { :class => 'i' } %>  
   </h2>
 
   <%= calendar_for @timesheets, :year => @date.year, :month => @date.month, :first_day_of_week => 1 do |cal| %>
   <%= cal.head('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday') %>
   <%= cal.day(:day_method => :day) do |date, timesheets| %>
     <%= date.day %>
+    <%= link_to 'Add', new_timesheet_day_path(:y => date.year, :m => date.month, :d => date.day ), :class => "right" %>
     <ul>
     <% for t in timesheets %>
       <li><%= link_to t.account.name, edit_timesheet_path(t) %></li>
@@ -20,15 +21,15 @@
 
 <h2>Add entries</h2>
 
-<%= simple_form_for @timesheet do |f| %>  
+<%= simple_form_for @timesheet, :url => timesheets_month_path(:y => @date.year, :m => @date.month ) do |f| %>  
   <%= f.input :hours, :collection => 1..16, :label => 'Hours per day', :selected => '8' %>  
   <%= f.association :account %>  
   <p>
     <div class="ib">
-      <%= label_tag :from, "From" %><%= text_field_tag :from, @start_day, :class => 'date' %>
+      <%= label_tag :from, "From" %><%= text_field_tag :from, @date.beginning_of_month, :class => 'date' %>
     </div>
     <div class="ib">
-      <%= label_tag :to, "To"%><%= text_field_tag :to, @start_day + 4, :class => 'date' %></p>
+      <%= label_tag :to, "To"%><%= text_field_tag :to, @date.end_of_month, :class => 'date' %></p>
     </div>
   <p>
   <%= check_box_tag "days[]", '1', true, :id => :monday %> <%= label_tag :monday, 'Monday'%>
