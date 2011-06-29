@@ -9,7 +9,9 @@
   <%= cal.head('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday') %>
   <%= cal.day(:day_method => :day) do |date, timesheets| %>
     <%= date.day %>
-    <%= link_to 'Add', new_timesheet_day_path(:y => date.year, :m => date.month, :d => date.day ), :class => "right" %>
+      <%= link_to new_timesheet_day_path(:y => date.year, :m => date.month, :d => date.day), :class => "right add-link" do %>
+       <span class="i">+</span> Add
+      <% end %>
     <ul>
     <% for t in timesheets %>
       <li><%= link_to t.account.name, edit_timesheet_path(t) %></li>
