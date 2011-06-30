@@ -2,6 +2,7 @@
 
 <dl>
   <div><dt>Name</dt><dd><%= @account.name %></dd></div>
+  <div><dt>Category</dt><dd><%= link_to @account.category.name, @account.category if @account.category %></dd></div>
   <div><dt>Parent account</dt><dd><%= link_to @account.parent.name, @account.parent if @account.parent %></dd></div>
 </dl>
 

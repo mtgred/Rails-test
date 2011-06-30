@@ -14,7 +14,7 @@
       <% end %>
     <ul>
     <% for t in timesheets %>
-      <li><%= link_to t.account.name, edit_timesheet_path(t) %></li>
+      <li style="background-color: <%= t.account.category.color if t.account.category %>;"><%= link_to t.account.name, edit_timesheet_path(t) %></li>
     <% end %>
     </ul>
   <% end %>

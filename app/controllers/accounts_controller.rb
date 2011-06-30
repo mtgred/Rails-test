@@ -55,6 +55,7 @@ class AccountsController < ApplicationController
         format.html { redirect_to accounts_url }
         format.json { render json: @account, status: :created, location: @account }
       else
+        @title = "New Account"
         format.html { render action: "new" }
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end
@@ -71,6 +72,7 @@ class AccountsController < ApplicationController
         format.html { redirect_to accounts_url }
         format.json { head :ok }
       else
+        @title = "Edit"
         format.html { render action: "edit" }
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end

@@ -1,4 +1,6 @@
 Saas::Application.routes.draw do
+  resources :account_categories
+
   match 'timesheets/:y/:m', :to => 'timesheets#index', :constraints => { :y => /\d{4}/, :m => /[01]?\d/, :d => /[0-3]?\d/ },:as => :timesheets_month, :via => :get
   match 'timesheets/:y/:m', :to => 'timesheets#bulk_create', :constraints => { :y => /\d{4}/, :m => /[01]?\d/, :d => /[0-3]?\d/ },:as => :timesheets_month, :via => :post
   match 'timesheets/new/:y/:m/:d', :to => 'timesheets#new', :constraints => { :y => /\d{4}/, :m => /[01]?\d/, :d => /[0-3]?\d/ }, :as => :new_timesheet_day, :via => :get
