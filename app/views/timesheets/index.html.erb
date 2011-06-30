@@ -24,8 +24,6 @@
 <h2>Add entries</h2>
 
 <%= simple_form_for @timesheet, :url => timesheets_month_path(:y => @date.year, :m => @date.month ) do |f| %>  
-  <%= f.input :hours, :collection => 1..16, :label => 'Hours per day', :selected => '8' %>  
-  <%= f.association :account %>  
   <p>
     <div class="ib">
       <%= label_tag :from, "From" %><%= text_field_tag :from, @date.beginning_of_month, :class => 'date' %>
@@ -43,5 +41,7 @@
   <%= check_box_tag "days[]", '0', false, :id => :sunday %> <%= label_tag :sunday, 'Sunday'%>
   <%= hidden_field_tag :month, @date %>
   </p>
+  <%= f.association :account %>  
+  <%= f.input :hours, :collection => 1..16, :label => 'Hours per day', :selected => '8' %>  
   <p><%= f.button :submit, 'Add' %></p> 
 <% end %>  

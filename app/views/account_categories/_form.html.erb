@@ -1,9 +1,11 @@
+<% @colors = %w[Gold PaleGreen LightBlue LightSalmon Orange Khaki Plum Pink Silver Wheat] %>
+
 <%= simple_form_for(@account_category) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
     <%= f.input :name %>
-    <%= f.input :color %>
+    <%= f.input :color, :collection => @colors %>
   </div>
 
   <div class="actions">
