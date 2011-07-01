@@ -21,6 +21,7 @@ Saas::Application.routes.draw do
   devise_for :users, :path_names => { :sign_up => "signup", :sign_in => "login" , :sign_out => "logout" }, :controllers => { :sessions => 'sessions', :passwords => 'passwords', :registrations => 'registrations' }, :path_prefix => 'd'
     
   root :to => 'pages#home'
+  match 'planning', :to => 'pages#planning'
   match 'documentation', :to => 'pages#documentation'
 
   # The priority is based upon order of creation:
