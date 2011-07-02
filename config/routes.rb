@@ -1,8 +1,8 @@
 Saas::Application.routes.draw do
   resources :account_categories
 
-  match 'timesheets/:y/:m', :to => 'timesheets#index', :constraints => { :y => /\d{4}/, :m => /[01]?\d/, :d => /[0-3]?\d/ },:as => :timesheets_month, :via => :get
-  match 'timesheets/:y/:m', :to => 'timesheets#bulk_create', :constraints => { :y => /\d{4}/, :m => /[01]?\d/, :d => /[0-3]?\d/ },:as => :timesheets_month, :via => :post
+  match 'timesheets/:y/:m', :to => 'timesheets#index', :constraints => { :y => /\d{4}/, :m => /[01]?\d/ }, :as => :timesheets_month, :via => :get
+  match 'timesheets/:y/:m', :to => 'timesheets#bulk_create', :constraints => { :y => /\d{4}/, :m => /[01]?\d/ },:as => :timesheets_month, :via => :post
   match 'timesheets/new/:y/:m/:d', :to => 'timesheets#new', :constraints => { :y => /\d{4}/, :m => /[01]?\d/, :d => /[0-3]?\d/ }, :as => :new_timesheet_day, :via => :get
 
   resources :timesheets
@@ -20,8 +20,9 @@ Saas::Application.routes.draw do
 
   devise_for :users, :path_names => { :sign_up => "signup", :sign_in => "login" , :sign_out => "logout" }, :controllers => { :sessions => 'sessions', :passwords => 'passwords', :registrations => 'registrations' }, :path_prefix => 'd'
     
-  root :to => 'pages#home'
-  match 'planning', :to => 'pages#planning'
+  root :to => 'pages#planning'
+  match 'planning(/:y/:m)', :to => 'pages#planning', :as => 'planning'
+  match 'dashboard', :to => 'pages#home'
   match 'documentation', :to => 'pages#documentation'
 
   # The priority is based upon order of creation:

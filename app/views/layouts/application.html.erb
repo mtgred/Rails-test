@@ -6,8 +6,7 @@
 <% content_for :body do %>
 <header>
   <div class="row">
-    <div class="grid-6"></div> 
-    <ul class="grid-10 h-menu right">
+    <ul class="h-menu right">
       <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_registration_path %></li>
       <li><%= link_to 'Sign out', destroy_user_session_path %></li>
     </ul>
@@ -19,7 +18,7 @@
     <div class="grid-3">
       <h3 class="title">Overview</h3>
       <ul class="v-menu">
-        <li><%= link_to 'Dashboard', root_path %></li>
+        <li><%= link_to 'Dashboard', dashboard_path %></li>
         <li><%= link_to 'Planning', planning_path %></li>
       </ul>
       <h3 class="title">Time &amp; Expenses</h3>

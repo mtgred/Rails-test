@@ -28,7 +28,7 @@ ol, ul
 body
   color: $font-color
   font-family: $font
-  font-size: 12px
+  font-size: 11px
 
 p 
   margin: 8px 0
@@ -70,20 +70,25 @@ a
 
 // Heading
 h1
-  font-size: 20px
+  font-size: 22px
   margin-bottom: 14px
-
 h2
   font-size: 18px
   margin-bottom: 12px
-
 h3
-  font-size: 14px
+  font-size: 15px
   margin-bottom: 10px
-
 h4
   font-size: 13px
   margin-bottom: 8px
+
+// Table
+
+table 
+  border-collapse: collapse
+
+td, th
+  border: 1px solid #999
 
 // Forms
 form fieldset
@@ -205,6 +210,7 @@ a.button.green:active,    a.button.green.active,    button.green:active,    inpu
   float: left
   margin: 0 $margin
   overflow: hidden
+  margin-bottom: 15px
 
 .row 
   width: $width
@@ -217,7 +223,7 @@ a.button.green:active,    a.button.green.active,    button.green:active,    inpu
     display: inline-block
   
 @mixin grid($rowwidth: 16)
-  width: ( $rowwidth * ($width / $columns)- (2 * $margin))+ (2 *  0 * $margin)
+  width: $rowwidth * $width / $columns - 2 * $margin
   @extend .column
 
 .grid-1 

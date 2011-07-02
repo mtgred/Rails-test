@@ -1,9 +1,5 @@
 <div id="calendar">
-  <h2 id="month">
-    <%= link_to "( ", timesheets_month_path(:y => @date.year, :m => @date.month - 1), { :class => 'i' } %> 
-  <%= h @date.strftime("%B %Y") %>
-  <%= link_to " )", timesheets_month_path(:y => @date.year, :m => @date.month + 1), { :class => 'i' } %>  
-  </h2>
+  <%= render :partial => 'shared/month_header', :locals => { :path => timesheets_path } %>
 
   <%= calendar_for @timesheets, :year => @date.year, :month => @date.month, :first_day_of_week => 1 do |cal| %>
   <%= cal.head('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday') %>

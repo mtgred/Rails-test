@@ -1,0 +1,5 @@
+<h2 id="month-header">
+  <%= link_to "( ", "#{path}/#{@date.year}/#{@date.month - 1}", { :class => 'i' } %> 
+  <%= h @date.strftime("%B %Y") %>
+  <%= link_to " )",  "#{path}/#{@date.year}/#{@date.month + 1}", { :class => 'i' } %>  
+</h2>
