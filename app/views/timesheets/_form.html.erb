@@ -10,7 +10,7 @@
     </div>
   <% end %>
 
-  <%= f.association :account %>
+  <%= f.association :account, :autofocus => 'autofocus' %>
   <%= f.hidden_field :day %>
   <%= f.input :hours, :collection => 1..16, :label => 'Hours', :selected => '8' %>  
 

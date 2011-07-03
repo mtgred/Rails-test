@@ -37,7 +37,7 @@
   <%= check_box_tag "days[]", '0', false, :id => :sunday %> <%= label_tag :sunday, 'Sunday'%>
   <%= hidden_field_tag :month, @date %>
   </p>
-  <%= f.association :account %>  
+  <%= f.association :account, :autofocus => 'autofocus' %>  
   <%= f.input :hours, :collection => 1..16, :label => 'Hours per day', :selected => '8' %>  
   <p><%= f.button :submit, 'Add' %></p> 
 <% end %>  
